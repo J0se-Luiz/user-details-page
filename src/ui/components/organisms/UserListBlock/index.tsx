@@ -3,7 +3,7 @@ import * as S from './styles';
 import { getInforUser } from '../../../helpers/api'
 
 interface UserListBlockProps {
-  dataLogin: any;
+  dataLogin: any,
   dataUserInfor: any,
   setDataUserInfor: any
 }
@@ -30,8 +30,6 @@ const UserListBlock: React.FC<UserListBlockProps> = ({ dataLogin, dataUserInfor,
               dataUserInfor,
               setDataUserInfor
             )
-
-            alert(`a muleke.... ${user.name} ...posição ${index += 1} `)
           }}>
             <S.NumberPosition>
               {index += 1}

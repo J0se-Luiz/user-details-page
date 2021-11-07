@@ -5,23 +5,22 @@ import LevelTierSilver from '../../molecules/LevelTierSilver';
 import LevelTierGold from '../../molecules/LevelTierGold';
 
 interface UserInforBlockProps {
-  props?: any;
+  dataUserInfor: any;
 }
 
-const UserInforBlock: React.FC<UserInforBlockProps> = () => {
-const points = 90;
+const UserInforBlock: React.FC<UserInforBlockProps> = ({ dataUserInfor }) => {
 
   return (
     <S.UserInforBlockStyle>
       <S.HeaderUserInfor>
-        <S.ImgUser src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/7.jpg" />
+        <S.ImgUser src={dataUserInfor.user.image ? dataUserInfor.user.image : `${process.env.PUBLIC_URL}/assets/img/jpg/sem-foto.jpg`} />
         <S.ContainerDescription>
           <S.NameUser>
-            Cameron Williamson
+            {dataUserInfor.user.name}
           </S.NameUser>
           <S.IconAndDescriptionUser>
             <S.DescriptionUser>
-              Sales Incentive Program Contributor
+              {dataUserInfor.userProgram.name}
             </S.DescriptionUser>
             <S.IconArrow src={`${process.env.PUBLIC_URL}/assets/img/svg/icon-arrow.svg`} />
           </S.IconAndDescriptionUser>
@@ -33,7 +32,7 @@ const points = 90;
           <S.ContainerIconStep>
             <S.IconPoints src={`${process.env.PUBLIC_URL}/assets/img/svg/Icon-points.svg`} />
             <S.Number>
-              1540
+              {dataUserInfor.user.balance.points}
             </S.Number>
           </S.ContainerIconStep>
           <S.DescriptionPoints>Points</S.DescriptionPoints>
@@ -42,7 +41,7 @@ const points = 90;
         <S.ContainerStep>
           <S.ContainerIconStep>
             <S.Number>
-              10450
+              {dataUserInfor.user.balance.miles}
             </S.Number>
           </S.ContainerIconStep>
           <S.DescriptionPoints>Miles</S.DescriptionPoints>
@@ -52,7 +51,7 @@ const points = 90;
           <S.ContainerIconStep>
             <S.Cipher>$</S.Cipher>
             <S.Number>
-              350
+              {Math.round(dataUserInfor.user.balance.currency)}
             </S.Number>
           </S.ContainerIconStep>
           <S.DescriptionPoints>Currency</S.DescriptionPoints>
@@ -61,9 +60,16 @@ const points = 90;
 
       <S.FooterUserInfor>
 
-       {points <= 100 && <LevelTierBronze />}
-       {points > 100 && points <= 300 &&  <LevelTierSilver />}
-       {points > 300 && <LevelTierGold />}
+        {/*  A API TA RETORNANDO ERRADO, TA INVERTIDA, QUEM É GOLD TA VINDO BRONZE E VICE VERSA */}
+        {/* {dataUserInfor.userLevel.name === "Bronze" && <LevelTierBronze />}
+        {dataUserInfor.userLevel.name === "Silver" && <LevelTierSilver />}
+        {dataUserInfor.userLevel.name === "Gold" && <LevelTierGold />} */}
+
+
+        {/* PARA QUE FIQUE COM OS STEPS CERTOS, VERIFIQUEI PELOS PONTOS DE CADA USER... COM BASE NAS REGRAS DA API, ATE 100 PONTOS É BRONZE, DE 101 A 300 É SILVER, A CIMA DE 300 É GOLD. */}
+        {dataUserInfor.user.balance.points <= 100 && <LevelTierBronze />}
+        {dataUserInfor.user.balance.points > 100 && dataUserInfor.user.balance.points <= 300 && <LevelTierSilver />}
+        {dataUserInfor.user.balance.points > 300 && <LevelTierGold />}
 
       </S.FooterUserInfor>
     </S.UserInforBlockStyle>

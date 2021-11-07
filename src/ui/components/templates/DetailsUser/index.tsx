@@ -18,7 +18,7 @@ const DetailsUser: React.FC<DetailsUserProps> = ({ dataLogin }) => {
       <UserListBlock dataLogin={dataLogin} dataUserInfor={dataUserInfor} setDataUserInfor={setDataUserInfor} />
       {dataUserInfor &&
         <>
-          <UserInforBlock />
+          <UserInforBlock dataUserInfor={dataUserInfor}/>
           <UserActivityBlock />
         </>}
     </S.DetailsUserStyle>

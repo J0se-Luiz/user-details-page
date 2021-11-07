@@ -108,6 +108,7 @@ export const Cipher = styled(DescriptionUser)`
   font-weight: bold;
   font-size: 13px;
   line-height: 17px;
+  margin-right: 2px;
 `;
 
 export const FooterUserInfor = styled.div`
