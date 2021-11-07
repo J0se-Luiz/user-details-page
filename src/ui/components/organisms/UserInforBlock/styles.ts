@@ -115,23 +115,3 @@ export const FooterUserInfor = styled.div`
   width: 100%;
   padding: 20px 0px;
 `;
-
-// export const DescriptionLevel = styled(Number)``;
-
-// export const ContainerLevel = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
-
-// export const ContainerNextLevel = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
-
-// export const NextTier = styled(DescriptionUser)`
-// `;
-
-// export const LevelNext = styled(Number)`
-// font-size: 12px;
-// margin: 0 4px;
-// `;

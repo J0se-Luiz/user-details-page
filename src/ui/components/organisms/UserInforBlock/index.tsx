@@ -1,5 +1,7 @@
 import React from 'react';
 import * as S from './styles';
+
+import LevelTierSilver from '../../molecules/LevelTierSilver';
 import LevelTierGold from '../../molecules/LevelTierGold';
 
 interface UserInforBlockProps {
@@ -46,7 +48,7 @@ const UserInforBlock: React.FC<UserInforBlockProps> = () => {
 
         <S.ContainerStep>
           <S.ContainerIconStep>
-          <S.Cipher>$</S.Cipher>
+            <S.Cipher>$</S.Cipher>
             <S.Number>
               350
             </S.Number>
@@ -57,19 +59,8 @@ const UserInforBlock: React.FC<UserInforBlockProps> = () => {
 
       <S.FooterUserInfor>
 
-
-        {/* <S.ContainerLevel>
-        <S.DescriptionLevel>
-          Gold
-        </S.DescriptionLevel>
-        <S.ContainerNextLevel>
-          <S.NextTier>Next Tier</S.NextTier>
-          <S.LevelNext>Platinum</S.LevelNext>
-          <S.IconPoints src={`${process.env.PUBLIC_URL}/assets/img/svg/Icon-next-tier.svg`} />
-
-        </S.ContainerNextLevel>
-        </S.ContainerLevel> */}
-<LevelTierGold />
+        <LevelTierSilver />
+        <LevelTierGold />
 
       </S.FooterUserInfor>
     </S.UserInforBlockStyle>
