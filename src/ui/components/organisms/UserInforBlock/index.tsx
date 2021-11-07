@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styles';
-
+import LevelTierBronze from '../../molecules/LevelTierBronze';
 import LevelTierSilver from '../../molecules/LevelTierSilver';
 import LevelTierGold from '../../molecules/LevelTierGold';
 
@@ -59,6 +59,7 @@ const UserInforBlock: React.FC<UserInforBlockProps> = () => {
 
       <S.FooterUserInfor>
 
+        <LevelTierBronze />
         <LevelTierSilver />
         <LevelTierGold />
 

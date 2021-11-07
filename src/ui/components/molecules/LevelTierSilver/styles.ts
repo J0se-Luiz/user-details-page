@@ -37,7 +37,7 @@ export const LevelNext = styled(DescriptionLevel)`
 export const IconTier = styled.img`
   width: 17px;
   height: 17px;
-  margin-right: 4px;
+  /* margin-right: 4px; */
 `;
 
 export const ContainerSteps = styled.div`
