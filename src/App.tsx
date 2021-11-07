@@ -7,7 +7,7 @@ function App() {
   const [login, setLogin] = useState({ auth: false, token: "" }); // da para seta no LocalStorage
   const [dataListUsers, setDataListUsers] = useState(undefined); // da para usa useEffect 
  //  console.log("....Pagina APP.....", login) // console.log
-   console.log("pagina APP....",dataListUsers);  // consol.log
+ //   console.log("pagina APP....",dataListUsers);  // consol.log
   return (
     <React.StrictMode>
       <Header />

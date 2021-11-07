@@ -9,6 +9,8 @@ interface UserInforBlockProps {
 }
 
 const UserInforBlock: React.FC<UserInforBlockProps> = () => {
+const points = 90;
+
   return (
     <S.UserInforBlockStyle>
       <S.HeaderUserInfor>
@@ -59,9 +61,9 @@ const UserInforBlock: React.FC<UserInforBlockProps> = () => {
 
       <S.FooterUserInfor>
 
-        <LevelTierBronze />
-        <LevelTierSilver />
-        <LevelTierGold />
+       {points <= 100 && <LevelTierBronze />}
+       {points > 100 && points <= 300 &&  <LevelTierSilver />}
+       {points > 300 && <LevelTierGold />}
 
       </S.FooterUserInfor>
     </S.UserInforBlockStyle>
