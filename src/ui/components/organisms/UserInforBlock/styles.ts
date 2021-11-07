@@ -8,7 +8,7 @@ export const UserInforBlockStyle = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px;
+  padding: 12px;
   border-radius: 8px;
 `;
 
@@ -51,7 +51,8 @@ export const IconAndDescriptionUser = styled.div`
 export const DescriptionUser = styled.p`
   font-family: Segoe UI;
   font-style: normal;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   max-width: 127px;
@@ -65,5 +66,52 @@ export const IconArrow = styled.img`
   width: 7px;
   height: 5px;
   position: relative;
-    left: 20px;
+  left: 20px;
+`;
+
+export const BodyUserInfor = styled.div`
+  border: 1px solid #d7dbe7;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+  margin: 10px 0px;
+  padding: 30px;
+
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const ContainerStep = styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ContainerIconStep = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const IconPoints = styled.img`
+  width: 17px;
+  height: 17px;
+  margin-right: 4px;
+`;
+
+export const Number = styled.p`
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  color: #16325c;
+`;
+
+export const DescriptionPoints = styled(DescriptionUser)``;
+
+export const Cipher = styled(DescriptionUser)`
+font-weight: bold;
+font-size: 13px;
+line-height: 17px;
 `;
