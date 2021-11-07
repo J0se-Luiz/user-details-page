@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './styles';
 
 interface UserListBlockProps {
-  dataListUsers?: any;
+  dataListUsers: any;
 }
 
 const UserListBlock: React.FC<UserListBlockProps> = ({ dataListUsers }) => {
@@ -25,16 +25,17 @@ const UserListBlock: React.FC<UserListBlockProps> = ({ dataListUsers }) => {
         </S.SpaceDescription>
       </S.ContainerDescription>
 
-
       <S.ContainerList>
 
         {dataListUsers && dataListUsers.map((user: any, index: number) => user && (
-          <S.LiListUser key={index}>
+          <S.LiListUser key={index} onClick={()=>{
+            alert(`a muleke.... ${user.name} ...posição ${index += 1} `)
+          }}>
             <S.NumberPosition>
               {index += 1}
             </S.NumberPosition>
             <S.ContainerMember>
-              <S.ImgMember src={user.image ? user.image : `${process.env.PUBLIC_URL}/assets/img/jpg/sem-foto.jpg` } />
+              <S.ImgMember src={user.image ? user.image : `${process.env.PUBLIC_URL}/assets/img/jpg/sem-foto.jpg`} />
               <S.NameMember>
                 {user.name}
               </S.NameMember>
