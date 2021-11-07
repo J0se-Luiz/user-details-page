@@ -8,7 +8,20 @@ interface UserInforBlockProps {
 const UserInforBlock: React.FC<UserInforBlockProps> = () => {
   return (
     <S.UserInforBlockStyle>
-        <p>infooooooo</p>
+      <S.HeaderUserInfor>
+        <S.ImgUser src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/7.jpg" />
+        <S.ContainerDescription>
+        <S.NameUser>
+        Cameron Williamson
+        </S.NameUser>
+        <S.IconAndDescriptionUser>
+        <S.DescriptionUser>
+        Sales Incentive Program Contributor
+        </S.DescriptionUser>
+       <S.IconArrow src={`${process.env.PUBLIC_URL}/assets/img/svg/icon-arrow.svg`}/>
+       </S.IconAndDescriptionUser>
+        </S.ContainerDescription>
+      </S.HeaderUserInfor>
     </S.UserInforBlockStyle>
   );
 };
