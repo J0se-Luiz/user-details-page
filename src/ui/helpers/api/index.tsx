@@ -52,6 +52,11 @@ export const userLogin = (
 
 export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
     setDataUserInfor: (arg0: any) => void) => {
+    
+        if (dataUserInfor?.user?.id && idUser === dataUserInfor.user.id) {
+            setDataUserInfor(undefined);
+            return
+        }
 
     // retorna o perfil
     const requestPerfil = require('request');

@@ -4,10 +4,13 @@ import DetailsUser from './ui/components/templates/DetailsUser'
 import Header from './ui/components/molecules/Header';
 
 function App() {
-  const [dataLogin, setLogin] = useState({ login: {auth: false, token: ""}, dataListUsers: undefined }); 
+  const [dataLogin, setLogin] = useState({
+    login: { auth: false, token: "" },
+    dataListUsers: undefined
+  });
 
-   console.log("....Pagina APP.....", dataLogin) 
-   
+  console.log("....Pagina APP.....", dataLogin)
+
   return (
     <React.StrictMode>
       <Header />
@@ -15,11 +18,11 @@ function App() {
         userLogin(
           setLogin,
           dataLogin
-       
-        )
-      }}>test</button>}
 
-      {dataLogin.dataListUsers && <DetailsUser dataLogin={dataLogin}/>}
+        )
+      }}>LOGIN</button>}
+
+      {dataLogin.dataListUsers && <DetailsUser dataLogin={dataLogin} />}
     </React.StrictMode>
   );
 }

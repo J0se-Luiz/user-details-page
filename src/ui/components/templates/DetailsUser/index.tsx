@@ -9,15 +9,18 @@ interface DetailsUserProps {
 }
 
 const DetailsUser: React.FC<DetailsUserProps> = ({ dataLogin }) => {
-  const [dataUserInfor, setDataUserInfor] = useState(undefined); 
+  const [dataUserInfor, setDataUserInfor] = useState(undefined);
 
-console.log("............... data user", dataUserInfor)
+  console.log("............... data user", dataUserInfor)
 
   return (
     <S.DetailsUserStyle>
-        <UserListBlock dataLogin={dataLogin} dataUserInfor={dataUserInfor} setDataUserInfor={setDataUserInfor} />
-        <UserInforBlock />
-        <UserActivityBlock />
+      <UserListBlock dataLogin={dataLogin} dataUserInfor={dataUserInfor} setDataUserInfor={setDataUserInfor} />
+      {dataUserInfor &&
+        <>
+          <UserInforBlock />
+          <UserActivityBlock />
+        </>}
     </S.DetailsUserStyle>
   );
 };
