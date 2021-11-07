@@ -52,11 +52,11 @@ export const userLogin = (
 
 export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
     setDataUserInfor: (arg0: any) => void) => {
-    
-        if (dataUserInfor?.user?.id && idUser === dataUserInfor.user.id) {
-            setDataUserInfor(undefined);
-            return
-        }
+
+    if (dataUserInfor?.user?.id && idUser === dataUserInfor.user.id) {
+        setDataUserInfor(undefined);
+        return
+    }
 
     // retorna o perfil
     const requestPerfil = require('request');
@@ -116,17 +116,26 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                             var requesta = require('request');
                             var optionsa = {
                                 'method': 'GET',
-                                'url': `https://challenge-fielo.herokuapp.com/users/${idUser}/activities`,
+                                'url': `https://challenge-fielo.herokuapp.com/users/${perfil.id}/activities`,
                                 'headers': {
                                     'x-access-token': token
                                 }
                             };
+                            // console.log("................ID QUE TA PASSANDO PARA A API DE ACTIVITIES, A API TA RETORNANDO SEMPRE AS MESMAS 7 ACTIVIES...........", perfil.id)
 
                             requesta(optionsa, function (error: string | undefined, response: { body: any; }) {
                                 if (error) throw new Error(error);
                                 if (response.body) {
                                     const activities = JSON.parse(response.body);
-                                    // console.log("........activities", activities);
+
+                                    activities.sort((a: { date: number; }, b: { date: number; }) => {
+                                        if (a.date > b.date) {
+                                            return -1
+                                        } else {
+                                            return true
+                                        }
+                                    })
+                                    //  console.log("........activities...", activities);
 
                                     setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities })
                                 }
@@ -137,45 +146,4 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
             });  //   <<< retorna o program 
         };
     }); // <<<  retorna o perfil
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-  //   retorna  os nivel dos programas
-//   var requestpp = require('request');
-//   var optionspp = {
-//       'method': 'GET',
-//       'url': `https://challenge-fielo.herokuapp.com/programs/86d5780f-38e2-4926-b4fe-518c5fd36b03/levels`,
-//       'headers': {
-//           'x-access-token': token
-//       }
-//   };
-
-//   requestpp(optionspp, function (error: string | undefined, response: { body: any; }) {
-//       if (error) throw new Error(error);
-//       const lvlprogram = JSON.parse(response.body)
-
-//       console.log("...........lvlprogram", lvlprogram)
-//   });
-  // // <<<<< retorna  os nivel dos programas

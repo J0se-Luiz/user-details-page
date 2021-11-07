@@ -51,7 +51,6 @@ export const DescriptioPoints = styled(DescriptionPos)`
   order: 1;
   flex-grow: 0;
   margin-right: 5px;
-  /* margin: 0px 149px; */
 `;
 
 export const ContainerList = styled.ul`
