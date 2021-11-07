@@ -36,7 +36,7 @@ export const userLogin = (
 
                 if (responseListUsers.body) {
                     const dataListUser = JSON.parse(responseListUsers.body)
-                    // console.log(dataListUser);
+                     console.log(dataListUser); // console.log
                     setDataListUsers(dataListUser);
                 }
             });

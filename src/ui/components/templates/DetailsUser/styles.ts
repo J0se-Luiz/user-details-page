@@ -6,7 +6,7 @@ export const DetailsUserStyle = styled.main`
   background-position: center top;
   align-items: center;
   justify-content: center;
-  padding: 100px 5%;
+  padding: 60px 5%;
   width: 100%;
   height: auto;
   display: flex;
