@@ -2,10 +2,19 @@ import React from 'react';
 import * as S from './styles';
 
 interface UserListBlockProps {
-  props?: any;
+  dataListUsers?: any;
 }
 
-const UserListBlock: React.FC<UserListBlockProps> = () => {
+const UserListBlock: React.FC<UserListBlockProps> = ({ dataListUsers }) => {
+
+  dataListUsers.sort((a: { balance: { points: number; }; }, b: { balance: { points: number; }; }) => {
+    if (a.balance.points > b.balance.points) {
+      return -1
+    } else {
+      return true
+    }
+  })
+
   return (
     <S.UserListBlockStyle>
       <S.ContainerDescription>
@@ -18,216 +27,24 @@ const UserListBlock: React.FC<UserListBlockProps> = () => {
 
 
       <S.ContainerList>
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
 
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
-
-        <S.LiListUser>
-          <S.NumberPosition>
-            1
-          </S.NumberPosition>
-          <S.ContainerMember>
-            <S.ImgMember src="https://pixinvent.com/materialize-material-design-admin-template/app-assets/images/user/1.jpg" />
-
-            <S.NameMember>
-              Carinha queMoraAli
-            </S.NameMember>
-          </S.ContainerMember>
-          <S.Points>
-            20
-          </S.Points>
-        </S.LiListUser>
+        {dataListUsers && dataListUsers.map((user: any, index: number) => user && (
+          <S.LiListUser key={index}>
+            <S.NumberPosition>
+              {index += 1}
+            </S.NumberPosition>
+            <S.ContainerMember>
+              <S.ImgMember src={user.image ? user.image : `${process.env.PUBLIC_URL}/assets/img/jpg/sem-foto.jpg` } />
+              <S.NameMember>
+                {user.name}
+              </S.NameMember>
+            </S.ContainerMember>
+            <S.Points>
+              {user.balance.points}
+            </S.Points>
+          </S.LiListUser>
+        ))}
       </S.ContainerList>
-
-
     </S.UserListBlockStyle>
   );
 };

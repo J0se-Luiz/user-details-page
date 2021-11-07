@@ -5,13 +5,14 @@ import UserInforBlock from '../../organisms/UserInforBlock';
 import UserActivityBlock from '../../organisms/UserActivityBlock';
 
 interface DetailsUserProps {
+  dataListUsers: any,
   props?: any;
 }
 
-const DetailsUser: React.FC<DetailsUserProps> = () => {
+const DetailsUser: React.FC<DetailsUserProps> = ({ dataListUsers }) => {
   return (
     <S.DetailsUserStyle>
-        <UserListBlock />
+        <UserListBlock dataListUsers={dataListUsers} />
         <UserInforBlock />
         <UserActivityBlock />
     </S.DetailsUserStyle>

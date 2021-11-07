@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const UserActivityBlockStyle = styled.section`
   margin: 1%;
   width: 300px;
-  height: 400px;
+  height: 364px;
   background-color: #ffff;
   display: flex;
   flex-direction: column;

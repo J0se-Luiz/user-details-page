@@ -17,7 +17,7 @@ function App() {
         )
       }}>test</button>}
 
-      {dataListUsers && <DetailsUser />}
+      {dataListUsers && <DetailsUser dataListUsers={dataListUsers}/>}
     </React.StrictMode>
   );
 }
