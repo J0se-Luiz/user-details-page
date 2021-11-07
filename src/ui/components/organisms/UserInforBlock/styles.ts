@@ -105,7 +105,33 @@ export const Number = styled(DescriptionUser)`
 export const DescriptionPoints = styled(DescriptionUser)``;
 
 export const Cipher = styled(DescriptionUser)`
-font-weight: bold;
-font-size: 13px;
-line-height: 17px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 17px;
 `;
+
+export const FooterUserInfor = styled.div`
+  border-bottom: 1px solid #d7dbe7;
+  width: 100%;
+  padding: 20px 0px;
+`;
+
+// export const DescriptionLevel = styled(Number)``;
+
+// export const ContainerLevel = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+// `;
+
+// export const ContainerNextLevel = styled.div`
+//   display: flex;
+//   align-items: center;
+// `;
+
+// export const NextTier = styled(DescriptionUser)`
+// `;
+
+// export const LevelNext = styled(Number)`
+// font-size: 12px;
+// margin: 0 4px;
+// `;
