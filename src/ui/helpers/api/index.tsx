@@ -35,9 +35,17 @@ export const userLogin = (
                 if (erroruser) throw new Error(erroruser);
 
                 if (responseListUsers.body) {
-                    const dataListUser = JSON.parse(responseListUsers.body)
-                     console.log(dataListUser); // console.log
-                    setDataListUsers(dataListUser);
+                    const dataListUsers = JSON.parse(responseListUsers.body)
+                    
+                    dataListUsers.sort((a: { balance: { points: number; }; }, b: { balance: { points: number; }; }) => {
+                        if (a.balance.points > b.balance.points) {
+                          return -1
+                        } else {
+                          return true
+                        }
+                      })
+                    //  console.log("dentro da api....",dataListUsers); // console.log
+                    setDataListUsers(dataListUsers);
                 }
             });
         }

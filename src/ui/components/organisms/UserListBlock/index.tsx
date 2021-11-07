@@ -7,14 +7,6 @@ interface UserListBlockProps {
 
 const UserListBlock: React.FC<UserListBlockProps> = ({ dataListUsers }) => {
 
-  dataListUsers.sort((a: { balance: { points: number; }; }, b: { balance: { points: number; }; }) => {
-    if (a.balance.points > b.balance.points) {
-      return -1
-    } else {
-      return true
-    }
-  })
-
   return (
     <S.UserListBlockStyle>
       <S.ContainerDescription>

@@ -83,6 +83,7 @@ export const LiListUser = styled.li`
   align-items: flex-start;
   width: 100%;
   margin: 4px 0;
+  cursor: pointer;
 `;
 
 export const NumberPosition = styled.p`
