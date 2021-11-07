@@ -1,11 +1,14 @@
 import React from 'react';
 import * as S from './styles';
+import { getInforUser } from '../../../helpers/api'
 
 interface UserListBlockProps {
-  dataListUsers: any;
+  dataLogin: any;
+  dataUserInfor: any,
+  setDataUserInfor: any
 }
 
-const UserListBlock: React.FC<UserListBlockProps> = ({ dataListUsers }) => {
+const UserListBlock: React.FC<UserListBlockProps> = ({ dataLogin, dataUserInfor, setDataUserInfor }) => {
 
   return (
     <S.UserListBlockStyle>
@@ -19,8 +22,15 @@ const UserListBlock: React.FC<UserListBlockProps> = ({ dataListUsers }) => {
 
       <S.ContainerList>
 
-        {dataListUsers && dataListUsers.map((user: any, index: number) => user && (
-          <S.LiListUser key={index} onClick={()=>{
+        {dataLogin.dataListUsers && dataLogin.dataListUsers.map((user: any, index: number) => user && (
+          <S.LiListUser key={index} onClick={() => {
+            getInforUser(
+              dataLogin.login.token,
+              user.id,
+              dataUserInfor,
+              setDataUserInfor
+            )
+
             alert(`a muleke.... ${user.name} ...posição ${index += 1} `)
           }}>
             <S.NumberPosition>

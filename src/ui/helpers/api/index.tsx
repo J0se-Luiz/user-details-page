@@ -1,8 +1,8 @@
 import { SetStateAction } from "react";
 
 export const userLogin = (
-    setLogin: { (value: SetStateAction<{ auth: boolean; token: string; }>): void; (arg0: any): void; },
-    setDataListUsers: { (value: SetStateAction<undefined>): void; (arg0: any): void; }
+    setLogin: { (value: SetStateAction<{ login: { auth: boolean; token: string; }; dataListUsers: undefined; }>): void; (arg0: any): void; },
+    dataLogin: { login: { auth: boolean; token: string; }; dataListUsers: undefined; }
 
 ) => {
     const request = require('request');
@@ -20,8 +20,6 @@ export const userLogin = (
 
         if (response.body) {
             const login = JSON.parse(response.body)
-            setLogin(login);
-
             const requestListUsers = require('request');
             const optionsuser = {
                 'method': 'GET',
@@ -45,206 +43,134 @@ export const userLogin = (
                         }
                     })
                     //  console.log("dentro da api....",dataListUsers); // console.log
-                    setDataListUsers(dataListUsers);
-
-// aqiiiiiiiiiiiiiiiiiiiiiiii
-
-                    // retorna o perfil
-                    var request = require('request');
-                    var options = {
-                        'method': 'GET',
-                        'url': `https://challenge-fielo.herokuapp.com/users/${dataListUsers[20].id}`,
-                        'headers': {
-                            'x-access-token': login?.token
-                        }
-                    };
-                    request(options, function (error: string | undefined, response: { body: any; }) {
-                        if (error) throw new Error(error);
-                        // var PerfilUser = JSON.parse(response.body)
-                         const perfil = JSON.parse(response.body);
-
-                         console.log("....... perfil",perfil)
-                    });
-                    // <<<   // retorna o perfil
-
-
-                      // retorna  as activities
-                    // var requesta = require('request');
-                    // var optionsa = {
-                    //     'method': 'GET',
-                    //     'url': `https://challenge-fielo.herokuapp.com/users/${dataListUsers[20].id}/activities`,
-                    //     'headers': {
-                    //         'x-access-token': login?.token
-                    //     }
-                    // };
-                    // requesta(optionsa, function (error: string | undefined, response: { body: any; }) {
-                    //     if (error) throw new Error(error);
-                    //   const activities = JSON.parse(response.body);
-
-                    //   console.log("........activities", activities)
-                    // });
-  // <<<< retorna  as activities 
-
-
-   //  retorna  os programas 
-                    var requestp = require('request');
-                    var optionsp = {
-                        'method': 'GET',
-                        'url': `https://challenge-fielo.herokuapp.com/programs/86d5780f-38e2-4926-b4fe-518c5fd36b03`,
-                        'headers': {
-                            'x-access-token': login?.token
-                        }
-                    };
-                    requestp(optionsp, function (error: string | undefined, response: { body: any; }) {
-                        if (error) throw new Error(error);
-                      const program = JSON.parse(response.body);
-
-                      console.log(".......program", program)
-                    });
-//  <<< retorna  os programas
-
-
-//  retorna  os nivel dos programas
-                    // var requestpp = require('request');
-                    // var optionspp = {
-                    //     'method': 'GET',
-                    //     'url': `https://challenge-fielo.herokuapp.com/programs/86d5780f-38e2-4926-b4fe-518c5fd36b03/levels`,
-                    //     'headers': {
-                    //         'x-access-token': login?.token
-                    //     }
-                    // };
-
-                    // requestpp(optionspp, function (error: string | undefined, response: { body: any; }) {
-                    //     if (error) throw new Error(error);
-                    //    const lvlprogram = JSON.parse(response.body)
-
-                    //    console.log("......lvlprogram", lvlprogram)
-                    // });
-// <<<<< retorna  os nivel dos programas
-
-
-// retorna o nivel do user
-                    var requestl = require('request');
-                    var optionsl = {
-                        'method': 'GET',
-                        'url': `https://challenge-fielo.herokuapp.com/levels/620be362-27a8-4531-8694-f314b03c169g`,
-                        'headers': {
-                            'x-access-token': login?.token
-                        }
-                    };
-                    requestl(optionsl, function (error: string | undefined, response: { body: any; }) {
-                        if (error) throw new Error(error);
-                        const lvlUser = JSON.parse(response.body);
-
-                        console.log(".......lvluser", lvlUser)
-                    });
-
-// <<<<retorna o nivel do user
-
-                }
+                    setLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers });
+                };
             });
+        };
+    });
+};
+
+export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
+    setDataUserInfor: (arg0: any) => void) => {
+
+    // retorna o perfil
+    const requestPerfil = require('request');
+    const optionsPerfil = {
+        'method': 'GET',
+        'url': `https://challenge-fielo.herokuapp.com/users/${idUser}`,
+        'headers': {
+            'x-access-token': token
         }
-    })
+    };
+    requestPerfil(optionsPerfil, function (error: string | undefined, response: { body: any; }) {
+        if (error) throw new Error(error);
+
+        if (response.body) {
+            const perfil = JSON.parse(response.body);
+            // console.log("....... perfil", perfil)
+            // setDataUserInfor({ ...dataUserInfor, user: perfil })
+
+            //   retorna  o programa do user
+            const requestProgram = require('request');
+            const optionsProgram = {
+                'method': 'GET',
+                'url': `https://challenge-fielo.herokuapp.com/programs/${perfil.programId}`,
+                'headers': {
+                    'x-access-token': token
+                }
+            };
+
+            requestProgram(optionsProgram, function (error: string | undefined, response: { body: any; }) {
+                if (error) throw new Error(error);
+
+                if (response.body) {
+                    const program = JSON.parse(response.body);
+                    // console.log("..........program", program)
+                    // setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program })
+
+                    // retorna o nivel do user
+                    const requestLevelUser = require('request');
+                    const optionsLevelUser = {
+                        'method': 'GET',
+                        'url': `https://challenge-fielo.herokuapp.com/levels/${perfil.levelId}`,
+                        'headers': {
+                            'x-access-token': token
+                        }
+                    };
+
+                    requestLevelUser(optionsLevelUser, function (error: string | undefined, response: { body: any; }) {
+                        if (error) throw new Error(error);
+
+                        if (response.body) {
+                            const userLevel = JSON.parse(response.body);
+                            // console.log("......A API TA RETORNANDO UMA ORDEM ERRADA. userLevel", userLevel)
+                            // setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program, userLevel: userLevel })
+
+
+                            // // retorna  as activities
+                            var requesta = require('request');
+                            var optionsa = {
+                                'method': 'GET',
+                                'url': `https://challenge-fielo.herokuapp.com/users/${idUser}/activities`,
+                                'headers': {
+                                    'x-access-token': token
+                                }
+                            };
+
+                            requesta(optionsa, function (error: string | undefined, response: { body: any; }) {
+                                if (error) throw new Error(error);
+                                if (response.body) {
+                                    const activities = JSON.parse(response.body);
+                                    // console.log("........activities", activities);
+
+                                    setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities })
+                                }
+                            }); // <<<< retorna  as activities 
+                        };
+                    });  // <<<<retorna o nivel do user
+                };
+            });  //   <<< retorna o program 
+        };
+    }); // <<<  retorna o perfil
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
 
 
-// export const getInforUser = (login: { token: any; }, idUser: any) => {
 
 
-//     // aqiiiiiiiiiiiiiiiiiiiiiiii
-
-//     // retorna o perfil
-//     var request = require('request');
-//     var options = {
-//         'method': 'GET',
-//         'url': `https://challenge-fielo.herokuapp.com/users/${idUser}`,
-//         'headers': {
-//             'x-access-token': login?.token
-//         }
-//     };
-//     request(options, function (error: string | undefined, response: { body: any; }) {
-//         if (error) throw new Error(error);
-//         // var PerfilUser = JSON.parse(response.body)
-//          const perfil = JSON.parse(response.body);
-
-//          console.log("....... perfil",perfil)
-//     });
-//     // <<<   // retorna o perfil
 
 
-//       // retorna  as activities
-//     var requesta = require('request');
-//     var optionsa = {
-//         'method': 'GET',
-//         'url': `https://challenge-fielo.herokuapp.com/users/${idUser}/activities`,
-//         'headers': {
-//             'x-access-token': login?.token
-//         }
-//     };
-//     requesta(optionsa, function (error: string | undefined, response: { body: any; }) {
-//         if (error) throw new Error(error);
-//       const activities = JSON.parse(response.body);
-
-//       console.log("........activities", activities)
-//     });
-// // <<<< retorna  as activities 
 
 
-// //  retorna  os programas 
-//     var requestp = require('request');
-//     var optionsp = {
-//         'method': 'GET',
-//         'url': `https://challenge-fielo.herokuapp.com/programs/86d5780f-38e2-4926-b4fe-518c5fd36b03`,
-//         'headers': {
-//             'x-access-token': login?.token
-//         }
-//     };
-//     requestp(optionsp, function (error: string | undefined, response: { body: any; }) {
-//         if (error) throw new Error(error);
-//       const program = JSON.parse(response.body);
-
-//       console.log(".......program", program)
-//     });
-// //  <<< retorna  os programas
 
 
-// //  retorna  os nivel dos programas
-//     var requestpp = require('request');
-//     var optionspp = {
-//         'method': 'GET',
-//         'url': `https://challenge-fielo.herokuapp.com/programs/86d5780f-38e2-4926-b4fe-518c5fd36b03/levels`,
-//         'headers': {
-//             'x-access-token': login?.token
-//         }
-//     };
 
-//     requestpp(optionspp, function (error: string | undefined, response: { body: any; }) {
-//         if (error) throw new Error(error);
-//        const lvlprogram = JSON.parse(response.body)
+  //   retorna  os nivel dos programas
+//   var requestpp = require('request');
+//   var optionspp = {
+//       'method': 'GET',
+//       'url': `https://challenge-fielo.herokuapp.com/programs/86d5780f-38e2-4926-b4fe-518c5fd36b03/levels`,
+//       'headers': {
+//           'x-access-token': token
+//       }
+//   };
 
-//        console.log("......lvlprogram", lvlprogram)
-//     });
-// // <<<<< retorna  os nivel dos programas
+//   requestpp(optionspp, function (error: string | undefined, response: { body: any; }) {
+//       if (error) throw new Error(error);
+//       const lvlprogram = JSON.parse(response.body)
 
-
-// // retorna o nivel do user
-//     var requestl = require('request');
-//     var optionsl = {
-//         'method': 'GET',
-//         'url': `https://challenge-fielo.herokuapp.com/levels/620be362-27a8-4531-8694-f314b03c169g`,
-//         'headers': {
-//             'x-access-token': login?.token
-//         }
-//     };
-//     requestl(optionsl, function (error: string | undefined, response: { body: any; }) {
-//         if (error) throw new Error(error);
-//         const lvlUser = JSON.parse(response.body);
-
-//         console.log(".......lvluser", lvlUser)
-//     });
-
-// // <<<<retorna o nivel do user
-
-// }
+//       console.log("...........lvlprogram", lvlprogram)
+//   });
+  // // <<<<< retorna  os nivel dos programas

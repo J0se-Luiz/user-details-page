@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 import UserListBlock from '../../organisms/UserListBlock';
 import UserInforBlock from '../../organisms/UserInforBlock';
 import UserActivityBlock from '../../organisms/UserActivityBlock';
 
 interface DetailsUserProps {
-  dataListUsers: any,
-  props?: any;
+  dataLogin: any
 }
 
-const DetailsUser: React.FC<DetailsUserProps> = ({ dataListUsers }) => {
+const DetailsUser: React.FC<DetailsUserProps> = ({ dataLogin }) => {
+  const [dataUserInfor, setDataUserInfor] = useState(undefined); 
+
+console.log("............... data user", dataUserInfor)
+
   return (
     <S.DetailsUserStyle>
-        <UserListBlock dataListUsers={dataListUsers} />
+        <UserListBlock dataLogin={dataLogin} dataUserInfor={dataUserInfor} setDataUserInfor={setDataUserInfor} />
         <UserInforBlock />
         <UserActivityBlock />
     </S.DetailsUserStyle>
