@@ -47,13 +47,14 @@ const UserInforBlock: React.FC<UserInforBlockProps> = () => {
           <S.ContainerIconStep>
           <S.Cipher>$</S.Cipher>
             <S.Number>
-              1540
+              350
             </S.Number>
           </S.ContainerIconStep>
           <S.DescriptionPoints>Currency</S.DescriptionPoints>
         </S.ContainerStep>
-
       </S.BodyUserInfor>
+
+      
     </S.UserInforBlockStyle>
   );
 };

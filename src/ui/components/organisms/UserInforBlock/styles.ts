@@ -14,7 +14,6 @@ export const UserInforBlockStyle = styled.section`
 
 export const HeaderUserInfor = styled.div`
   width: 100%;
-  /* margin: 0 auto; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +34,6 @@ export const NameUser = styled.h2`
   font-weight: bold;
   font-size: 16px;
   line-height: 21px;
-  /* display: flex; */
   align-items: center;
   min-width: 133px;
 
@@ -56,8 +54,6 @@ export const DescriptionUser = styled.p`
   font-size: 12px;
   line-height: 16px;
   max-width: 127px;
-
-  /* display: flex; */
   align-items: center;
   color: #8a94a6;
 `;
@@ -99,9 +95,7 @@ export const IconPoints = styled.img`
   margin-right: 4px;
 `;
 
-export const Number = styled.p`
-  font-family: Segoe UI;
-  font-style: normal;
+export const Number = styled(DescriptionUser)`
   font-weight: 600;
   font-size: 16px;
   line-height: 21px;
