@@ -29,7 +29,7 @@ export const ImgUser = styled.img`
 export const ContainerDescription = styled.div``;
 
 export const NameUser = styled.h2`
-  font-family: Segoe UI;
+  font-family: Segoe UI italic;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -47,7 +47,7 @@ export const IconAndDescriptionUser = styled.div`
 `;
 
 export const DescriptionUser = styled.p`
-  font-family: Segoe UI;
+  font-family: Segoe UI italic;
   font-style: normal;
   /* font-weight: 600; */
   font-weight: 500;

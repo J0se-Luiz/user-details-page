@@ -22,7 +22,7 @@ export const ContainerDescription = styled.div`
 `;
 
 export const DescriptionPos = styled.p`
-  font-family: Segoe UI;
+  font-family: Segoe UI italic;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -88,7 +88,7 @@ export const LiListUser = styled.li`
 `;
 
 export const NumberPosition = styled.p`
-  font-family: Segoe UI;
+  font-family: Segoe UI italic;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;

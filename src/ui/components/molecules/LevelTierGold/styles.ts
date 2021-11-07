@@ -11,10 +11,10 @@ export const ContainerNextLevel = styled.div`
 `;
 
 export const NextTier = styled.p`
-  font-family: Segoe UI;
+  font-family: Segoe UI italic;
   font-style: normal;
   /* font-weight: 600; */
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 16px;
   max-width: 127px;
