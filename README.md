@@ -10,7 +10,7 @@
 
 # DESKTOP
 
-![user-details-page Desktop](public/assets/gif/Lading-Page-Embracon-Desktop.gif)
+![user-details-page Desktop](public/assets/gifs/Details-User-Page-Desktop.gif)
 
 <br/>
 <br/>
@@ -18,7 +18,7 @@
 
 # MOBILE
 
-![Lading Page Embracon Mobile](public/assets/gif/Lading-Page-Embracon-mobile.gif)
+![Lading Page Embracon Mobile](public/assets/gifs/Details-User-Page-Mobile.gif)
 
 <br/>
 <br/>
