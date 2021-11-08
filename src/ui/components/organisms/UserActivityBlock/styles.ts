@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UserActivityBlockStyle = styled.section`
-  margin: 1%;
+  margin: 10px;
   width: 300px;
   height: 364px;
   background-color: #ffff;
@@ -11,6 +11,7 @@ export const UserActivityBlockStyle = styled.section`
   padding: 0px 8px;
   border-radius: 8px;
   overflow: auto;
+
 `;
 
 export const ListActivitie = styled.ul`

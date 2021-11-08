@@ -6,12 +6,13 @@ export const DetailsUserStyle = styled.main`
   background-position: center top;
   align-items: center;
   justify-content: center;
-  padding: 80px 5%;
+  padding: 75px 5%;
   width: 100%;
-  height: auto;
+  height: calc(100vh - 80px);
   display: flex;
 
   @media(max-width: 999px){
       flex-direction: column;
+      height: auto
   }
 `;

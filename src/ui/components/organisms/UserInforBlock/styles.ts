@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UserInforBlockStyle = styled.section`
-  margin: 1%;
+  margin: 10px;
   width: 300px;
   height: 364px;
   background-color: #ffff;
@@ -10,6 +10,7 @@ export const UserInforBlockStyle = styled.section`
   align-items: flex-start;
   padding: 12px;
   border-radius: 8px;
+
 `;
 
 export const HeaderUserInfor = styled.div`

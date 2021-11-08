@@ -7,21 +7,16 @@ interface UserActivityBlockProps {
 
 const UserActivityBlock: React.FC<UserActivityBlockProps> = ({ dataUserInfor }) => {
   const calcDate = (date: any) => {
-
     const date1 = new Date(date);
     const date2 = new Date();
     const nDays = (Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate()) -
       Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate())) / 86400000;
 
-
-      console.log("........2021/11/07............", date2)
     if (nDays === 0 || isNaN(nDays)) {
       return date
     } else {
       return nDays === 1 ? `to ${nDays} day` : `to ${nDays} days`;
-    }
-  }
-
+    }};
 
   return (
     <S.UserActivityBlockStyle>

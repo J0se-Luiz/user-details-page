@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UserListBlockStyle = styled.section`
-  margin: 1%;
+  margin: 10px;
   width: 300px;
   height: 364px;
   background-color: #ffff;
@@ -10,6 +10,7 @@ export const UserListBlockStyle = styled.section`
   align-items: flex-start;
   padding: 8px;
   border-radius: 8px;
+
 `;
 
 export const ContainerDescription = styled.div`
@@ -84,6 +85,21 @@ export const LiListUser = styled.li`
   width: 100%;
   margin: 4px 0;
   cursor: pointer;
+
+  :hover {
+    opacity: 0.6;
+
+    transform: scale(0.92);
+    transition: all 0.5s;
+  }
+
+  :active {
+    cursor: wait;
+  }
+
+  :focus {
+    cursor: wait;
+  }
 `;
 
 export const NumberPosition = styled.p`
