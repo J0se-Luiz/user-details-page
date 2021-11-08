@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { userLogin } from './ui/helpers/api';
+import GoToGitHub from './ui/components/atoms/GoToGitHub'
 import Loading from './ui/components/atoms/Loading';
 import Login from './ui/components/templates/Login';
 import DetailsUser from './ui/components/templates/DetailsUser';
@@ -27,6 +28,7 @@ function App() {
       }} />}
       <Loading loading={dataLogin.loading} />
       {dataLogin.dataListUsers && <DetailsUser dataLogin={dataLogin} />}
+      <GoToGitHub />
     </React.StrictMode>
   );
 }
