@@ -6,7 +6,6 @@ export const userLogin = (
 
 ) => {
     setDataLogin({ ...dataLogin, loading: true });
-    console.log("...........................assim que chegou", dataLogin)
     const request = require('request');
     const options = {
         'method': 'POST',
@@ -46,7 +45,6 @@ export const userLogin = (
                     })
                     //  console.log("dentro da api....",dataListUsers); // console.log
                     setDataLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers, loading: false });
-                    console.log("...........................assim que chegou", dataLogin)
                 };
             });
         };
@@ -56,8 +54,10 @@ export const userLogin = (
 export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
     setDataUserInfor: (arg0: any) => void) => {
 
-    if (dataUserInfor?.user?.id && idUser === dataUserInfor.user.id) {
-        setDataUserInfor(undefined);
+        setDataUserInfor({ ...dataUserInfor,  loading: true });
+
+    if (dataUserInfor?.userInfor?.user?.id && idUser === dataUserInfor.userInfor.user.id) {
+        setDataUserInfor({ ...dataUserInfor , userInfor: undefined});
         return
     }
 
@@ -140,7 +140,7 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                                     })
                                     //  console.log("........activities...", activities);
 
-                                    setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities })
+                                    setDataUserInfor({ ...dataUserInfor, userInfor: { user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities}, loading: false })
                                 }
                             }); // <<<< retorna  as activities 
                         };

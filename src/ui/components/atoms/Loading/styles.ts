@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 interface TypesLoading {
   loading: boolean;
 }
@@ -14,6 +13,10 @@ export const LoadingStyle = styled.div<TypesLoading>`
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: url("${process.env.PUBLIC_URL}/assets/gifs/loading.gif");
+
+    background-position: center;
+    background-repeat: no-repeat;
 
   :hover {
     opacity: 0.7;

@@ -26,7 +26,7 @@ const UserActivityBlock: React.FC<UserActivityBlockProps> = ({ dataUserInfor }) 
 
       <S.ListActivitie>
 
-        {dataUserInfor.userActivities && dataUserInfor.userActivities.map((activitie: any, index: number) => activitie && (
+        {dataUserInfor.userInfor.userActivities && dataUserInfor.userInfor.userActivities.map((activitie: any, index: number) => activitie && (
 
           <S.Activitie key={index}>
 
