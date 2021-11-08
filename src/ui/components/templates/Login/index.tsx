@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styles';
-import ButtonLogin from '../../atoms/ButtonLogin';
+import ButtonSignIn from '../../atoms/ButtonSignIn';
 
 interface LoginProps {
   onClick(): void;
@@ -10,12 +10,12 @@ const Login: React.FC<LoginProps> = ({ onClick }) => {
   return (
     <S.LoginStyle>
       <S.UserListBlockStyle>
-<S.Hello> Hello!</S.Hello>
-<S.Description> Click on the login button, enter see all user details</S.Description>
+        <S.Hello> Hello!</S.Hello>
+        <S.Description> click on the login button, and see the users details page</S.Description>
 
-        <ButtonLogin onClick={onClick}>
-          Login
-        </ButtonLogin>
+        <ButtonSignIn onClick={onClick}>
+          Sign in
+        </ButtonSignIn>
       </S.UserListBlockStyle>
     </S.LoginStyle>
   );

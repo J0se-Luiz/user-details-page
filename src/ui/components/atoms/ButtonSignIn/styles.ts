@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonLoginStyle = styled.button`
+export const ButtonSignInStyle = styled.button`
   font-family: Segoe UI italic;
   font-style: normal;
   font-weight: normal;

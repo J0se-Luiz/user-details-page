@@ -1,10 +1,12 @@
 import { SetStateAction } from "react";
 
 export const userLogin = (
-    setLogin: { (value: SetStateAction<{ login: { auth: boolean; token: string; }; dataListUsers: undefined; }>): void; (arg0: any): void; },
-    dataLogin: { login: { auth: boolean; token: string; }; dataListUsers: undefined; }
+    setDataLogin: { (value: SetStateAction<{ login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: boolean; }>): void; (arg0: any): void; },
+    dataLogin: { login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: boolean; }
 
 ) => {
+    setDataLogin({ ...dataLogin, loading: true });
+    console.log("...........................assim que chegou", dataLogin)
     const request = require('request');
     const options = {
         'method': 'POST',
@@ -43,7 +45,8 @@ export const userLogin = (
                         }
                     })
                     //  console.log("dentro da api....",dataListUsers); // console.log
-                    setLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers });
+                    setDataLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers, loading: false });
+                    console.log("...........................assim que chegou", dataLogin)
                 };
             });
         };
