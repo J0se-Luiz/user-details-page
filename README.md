@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# user-details-page
+ ### in a few steps you can run the project on your machine, just follow the step by step below =)
+<br/>
+<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## here's a preview of lading, a video of the desktop version and one of the mobile version
+<br/>
+<br/>
+<br/>
 
-## Available Scripts
+# DESKTOP
 
-In the project directory, you can run:
+![user-details-page Desktop](public/assets/gif/Lading-Page-Embracon-Desktop.gif)
 
-### `yarn start`
+<br/>
+<br/>
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# MOBILE
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Lading Page Embracon Mobile](public/assets/gif/Lading-Page-Embracon-mobile.gif)
 
-### `yarn test`
+<br/>
+<br/>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## below is a list of all the technology used in this project.
 
-### `yarn build`
+<br/>
+<a href="https://atomicdesign.bradfrost.com/chapter-2/"> <img src="https://atomicdesign.bradfrost.com/images/content/atomic-design-abstract-concrete.png" width="100" height="50">
+</a>
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ used **Atomic Design Methodology** to organize the components 
+ <br/>
+ <br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://pt-br.reactjs.org/docs/getting-started.html)
+<br/>
+I used **React**
+<br/>
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
+<br/>
+made with **Yarn**
+<br/>
+<br/>
 
-### `yarn eject`
+[![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
+<br/>
+the project was all typed with **Typescript**
+<br/>
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
+<br/>
+for the styling of the components and the page I used **Styled Components**
+<br/>
+<br/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 1- **download the project** on your machine =)
+```bash
+git clone https://github.com/J0se-Luiz/user-details-page.git
+```
+<br/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 2- at the root of the project **yarn**
+```bash
+yarn
+```
 
-## Learn More
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3- Ready =) to run the local project, run **yarn start**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+yarn start
+```
+
+## Hope you like it!
+

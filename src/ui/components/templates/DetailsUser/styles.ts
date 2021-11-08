@@ -8,7 +8,7 @@ export const DetailsUserStyle = styled.main`
   justify-content: center;
   padding: 75px 5%;
   width: 100%;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   display: flex;
 
   @media(max-width: 999px){

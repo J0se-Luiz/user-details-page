@@ -18,7 +18,7 @@ function App() {
         login: { auth: false, token: "" },
         dataListUsers: undefined,
         loading: false
-      })} />
+      })} auth={dataLogin.login.auth} />
       {!dataLogin.dataListUsers && <Login onClick={() => {
         userLogin(
           setDataLogin,

@@ -93,13 +93,6 @@ export const LiListUser = styled.li`
     transition: all 0.5s;
   }
 
-  :active {
-    cursor: wait;
-  }
-
-  :focus {
-    cursor: wait;
-  }
 `;
 
 export const NumberPosition = styled.p`
