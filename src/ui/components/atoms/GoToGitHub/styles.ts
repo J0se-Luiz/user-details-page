@@ -52,6 +52,7 @@ export const ImgGit = styled.img`
   animation-name: ${RotateIconGit};
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
+  margin-top: 3px;
 
   :hover {
     opacity: 0.7;

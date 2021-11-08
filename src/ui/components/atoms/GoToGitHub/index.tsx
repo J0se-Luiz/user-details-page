@@ -7,7 +7,7 @@ interface GoToGitHubProps {
 
 const GoToGitHub: React.FC<GoToGitHubProps> = () => {
   return (
-      <S.LinkToGitHub href="https://github.com/J0se-Luiz/user-details-page" target="_blank">
+      <S.LinkToGitHub href="https://github.com/J0se-Luiz/user-details-page" target="_blank" rel="noopener">
     <S.GoToGitHubStyle>
         <S.ImgGit
           src={`${process.env.PUBLIC_URL}/assets/Go-To-Img/go-to-GitHub.png`}
