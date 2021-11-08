@@ -8,9 +8,7 @@ function App() {
     login: { auth: false, token: "" },
     dataListUsers: undefined
   });
-
-  console.log("....Pagina APP.....", dataLogin)
-
+  
   return (
     <React.StrictMode>
       <Header />
