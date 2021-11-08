@@ -12,7 +12,7 @@ interface DetailsUserProps {
 const DetailsUser: React.FC<DetailsUserProps> = ({ dataLogin }) => {
   const [dataUserInfor, setDataUserInfor] = useState({userInfor: undefined, loading: false});
 
-  console.log("............... data user", dataUserInfor)
+  // console.log("............... data user", dataUserInfor)
 
   return (
     <S.DetailsUserStyle>
