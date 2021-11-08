@@ -129,7 +129,7 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                                 var requesta = require('request');
                                 var optionsa = {
                                     'method': 'GET',
-                                    'url': `https://challenge-fielo.herokuapp.com/users/${perfil.id}/activities`,
+                                    'url': `https://challenge-fielo.herokuapp.com/users/${idUser}/activities`,
                                     'headers': {
                                         'x-access-token': token
                                     }

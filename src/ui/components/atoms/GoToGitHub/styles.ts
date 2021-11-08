@@ -17,7 +17,7 @@ export const GoToGitHubStyle = styled.button`
   border-radius: 50%;
   height: 65px;
   width: 65px;
-  position: fixed;
+  position: absolute;
   top: 90px;
   right: 11px;
   cursor: pointer;
