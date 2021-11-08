@@ -12,11 +12,13 @@ const UserActivityBlock: React.FC<UserActivityBlockProps> = ({ dataUserInfor }) 
     const nDays = (Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate()) -
       Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate())) / 86400000;
 
-    if (nDays === 0 || isNaN(nDays)) {
-      return date
-    } else {
-      return nDays === 1 ? `to ${nDays} day` : `to ${nDays} days`;
-    }};
+      if (isNaN(nDays)) return date;    
+    if(nDays === 0) return `Today`;
+    if(nDays === 1) return `Yesterday`;
+    if(nDays === 2) return `Before Yesterday`;
+    if(nDays > 2) return `to ${nDays} days`;
+    
+  }
 
   return (
     <S.UserActivityBlockStyle>
