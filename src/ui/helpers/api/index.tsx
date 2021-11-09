@@ -5,9 +5,11 @@ export const userLogin = (
     dataLogin: { login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: string; }
 
 ) => {
+
     setDataLogin({ ...dataLogin, loading: 'yes' });
     const request = require('request');
-    const options = {
+
+    const API_LOGIN = {
         'method': 'POST',
         'url': 'https://challenge-fielo.herokuapp.com/auth',
         'headers': {
@@ -15,14 +17,13 @@ export const userLogin = (
         }
     };
 
-    request(options, function (error: string | undefined, response: { body: any; }) {
+    request(API_LOGIN, function (error: string | undefined, response: { body: any; }) {
 
-        // if (error) throw new Error(error);
         try {
             if (response.body) {
-                const login = JSON.parse(response.body)
-                const requestListUsers = require('request');
-                const optionsuser = {
+                const login = JSON.parse(response.body);
+
+                const API_GET_USERS = {
                     'method': 'GET',
                     'url': 'https://challenge-fielo.herokuapp.com/users',
                     'headers': {
@@ -30,11 +31,11 @@ export const userLogin = (
                     }
                 };
 
-                requestListUsers(optionsuser, function (erroruser: string | undefined, responseListUsers: { body: any; }) {
-                    // if (erroruser) throw new Error(erroruser);
+                request(API_GET_USERS, function (erroruser: string | undefined, responseListUsers: { body: any; }) {
                     try {
 
                         if (responseListUsers.body) {
+
                             const dataListUsers = JSON.parse(responseListUsers.body)
 
                             dataListUsers.sort((a: { balance: { points: number; }; }, b: { balance: { points: number; }; }) => {
@@ -43,8 +44,8 @@ export const userLogin = (
                                 } else {
                                     return true
                                 }
-                            })
-                            //  console.log("lista dos usuarios....",dataListUsers); // console.log
+                            });
+
                             setDataLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers, loading: 'no' });
                         };
                     } catch {
@@ -71,26 +72,22 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
     }
 
     // retorna o perfil
-    const requestPerfil = require('request');
-    const optionsPerfil = {
+    const request = require('request');
+    const API_PERFIL = {
         'method': 'GET',
         'url': `https://challenge-fielo.herokuapp.com/users/${idUser}`,
         'headers': {
             'x-access-token': token
         }
     };
-    requestPerfil(optionsPerfil, function (error: string | undefined, response: { body: any; }) {
-        // if (error) throw new Error(error);
-        try {
+    request(API_PERFIL, function (error: string | undefined, response: { body: any; }) {
 
+        try {
             if (response.body) {
                 const perfil = JSON.parse(response.body);
-                // console.log("....... perfil", perfil)
-                // setDataUserInfor({ ...dataUserInfor, user: perfil })
-
+              
                 //   retorna  o programa do user
-                const requestProgram = require('request');
-                const optionsProgram = {
+                const API_PROGRAM = {
                     'method': 'GET',
                     'url': `https://challenge-fielo.herokuapp.com/programs/${perfil.programId}`,
                     'headers': {
@@ -98,17 +95,13 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                     }
                 };
 
-                requestProgram(optionsProgram, function (error: string | undefined, response: { body: any; }) {
-                    if (error) throw new Error(error);
-
+                request(API_PROGRAM, function (error: string | undefined, response: { body: any; }) {                   
                     if (response.body) {
-                        const program = JSON.parse(response.body);
-                        // console.log("..........program", program)
-                        // setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program })
 
-                        // retorna o nivel do user
-                        const requestLevelUser = require('request');
-                        const optionsLevelUser = {
+                        const program = JSON.parse(response.body);
+                       
+                        // retorna o nivel do user                        
+                        const API_LEVEL_USER = {
                             'method': 'GET',
                             'url': `https://challenge-fielo.herokuapp.com/levels/${perfil.levelId}`,
                             'headers': {
@@ -116,28 +109,22 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                             }
                         };
 
-                        requestLevelUser(optionsLevelUser, function (error: string | undefined, response: { body: any; }) {
-                            if (error) throw new Error(error);
+                        request(API_LEVEL_USER, function (error: string | undefined, response: { body: any; }) {
 
-                            if (response.body) {
+                            if (response.body) {                                
                                 const userLevel = JSON.parse(response.body);
-                                // console.log("......A API TA RETORNANDO UMA ORDEM ERRADA. userLevel", userLevel)
-                                // setDataUserInfor({ ...dataUserInfor, user: perfil, userProgram: program, userLevel: userLevel })
-
-
-                                // // retorna  as activities
-                                var requesta = require('request');
-                                var optionsa = {
+                                
+                                // // retorna  as activities                                
+                                const API_ACTIVITIES = {
                                     'method': 'GET',
                                     'url': `https://challenge-fielo.herokuapp.com/users/${idUser}/activities`,
                                     'headers': {
                                         'x-access-token': token
                                     }
-                                };
-                                // console.log("................ID QUE TA PASSANDO PARA A API DE ACTIVITIES, A API TA RETORNANDO SEMPRE AS MESMAS 7 ACTIVIES...........", perfil.id)
+                                };                               
 
-                                requesta(optionsa, function (error: string | undefined, response: { body: any; }) {
-                                    if (error) throw new Error(error);
+                                request(API_ACTIVITIES, function (error: string | undefined, response: { body: any; }) {
+                                    
                                     if (response.body) {
                                         const activities = JSON.parse(response.body);
 
@@ -148,7 +135,6 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                                                 return true
                                             }
                                         })
-                                        //  console.log("........activities...", activities);
 
                                         setDataUserInfor({ ...dataUserInfor, userInfor: { user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities }, loading: 'no' })
                                     }
