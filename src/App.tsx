@@ -10,7 +10,7 @@ function App() {
   const [dataLogin, setDataLogin] = useState({
     login: { auth: false, token: "" },
     dataListUsers: undefined,
-    loading: false
+    loading: 'no'
   });
 
   return (
@@ -18,7 +18,7 @@ function App() {
       <Header onClick={() => setDataLogin({
         login: { auth: false, token: "" },
         dataListUsers: undefined,
-        loading: false
+        loading: 'no'
       })} auth={dataLogin.login.auth} />
       {!dataLogin.dataListUsers && <Login onClick={() => {
         userLogin(

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 interface TypesLoading {
-  loading: boolean;
+  loading: string;
 }
 
 export const LoadingStyle = styled.div<TypesLoading>`
-  display: ${(props) => (props.loading ? "block" : "none")};
+  display: ${(props) => (props.loading === 'yes' ? "block" : "none")};
   z-index: 9999;
   background-color: transparent;
   opacity: 0.2;

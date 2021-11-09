@@ -1,11 +1,11 @@
 import { SetStateAction } from "react";
 
 export const userLogin = (
-    setDataLogin: { (value: SetStateAction<{ login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: boolean; }>): void; (arg0: any): void; },
-    dataLogin: { login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: boolean; }
+    setDataLogin: { (value: SetStateAction<{ login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: string; }>): void; (arg0: any): void; },
+    dataLogin: { login: { auth: boolean; token: string; }; dataListUsers: undefined; loading: string; }
 
 ) => {
-    setDataLogin({ ...dataLogin, loading: true });
+    setDataLogin({ ...dataLogin, loading: 'yes' });
     const request = require('request');
     const options = {
         'method': 'POST',
@@ -45,17 +45,17 @@ export const userLogin = (
                                 }
                             })
                             //  console.log("lista dos usuarios....",dataListUsers); // console.log
-                            setDataLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers, loading: false });
+                            setDataLogin({ ...dataLogin, login: login, dataListUsers: dataListUsers, loading: 'no' });
                         };
                     } catch {
                         alert(`Failed trying to list users... >>> =..( <<< something wrong is not right hehehe, try again later. ${error}`);
-                        setDataLogin({ ...dataLogin, loading: false });
+                        setDataLogin({ ...dataLogin, loading: 'no' });
                     }
                 });
             };
         } catch {
             alert(`Sign In failed...  >>> =..( <<< something wrong is not right hehehe, try again later. ${error}`);
-            setDataLogin({ ...dataLogin, loading: false });
+            setDataLogin({ ...dataLogin, loading: 'no' });
         }
     });
 };
@@ -63,7 +63,7 @@ export const userLogin = (
 export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
     setDataUserInfor: (arg0: any) => void) => {
 
-    setDataUserInfor({ ...dataUserInfor, loading: true });
+    setDataUserInfor({ ...dataUserInfor, loading: 'yes' });
 
     if (dataUserInfor?.userInfor?.user?.id && idUser === dataUserInfor.userInfor.user.id) {
         setDataUserInfor({ ...dataUserInfor, userInfor: undefined });
@@ -150,7 +150,7 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
                                         })
                                         //  console.log("........activities...", activities);
 
-                                        setDataUserInfor({ ...dataUserInfor, userInfor: { user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities }, loading: false })
+                                        setDataUserInfor({ ...dataUserInfor, userInfor: { user: perfil, userProgram: program, userLevel: userLevel, userActivities: activities }, loading: 'no' })
                                     }
                                 }); // <<<< retorna  as activities 
                             };
@@ -160,7 +160,7 @@ export const getInforUser = (token: any, idUser: any, dataUserInfor: any,
             };
         } catch {
             alert(`failed while trying to fetch user information... >>> =..( <<< something wrong is not right hehehe, try again later. ${error}`);
-            setDataUserInfor({ ...dataUserInfor, loading: false });
+            setDataUserInfor({ ...dataUserInfor, loading: 'no' });
         }
     }); // <<<  retorna o perfil
 }
